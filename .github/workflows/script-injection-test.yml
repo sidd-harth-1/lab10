@@ -4,12 +4,10 @@ on:
     types:
       - opened
 jobs:
-  assign-label:
+  issues-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Content
-        env:
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Echo Message
         run: |
           issue_title="${{ github.event.issue.title }}"
           if [[ "$issue_title" == *"bug"* ]]; then
